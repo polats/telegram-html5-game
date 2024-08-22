@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "set-webhook": "node scripts/tg-utils.js set-webhook",
     "get-webhook-info": "node scripts/tg-utils.js get-webhook-info",
-    "set-webhook-local": "node scripts/tg-utils.js set-webhook-local"
-
+    "set-webhook-local": "node scripts/tg-utils.js set-webhook-local",
+    "set-webhook-prod": "node scripts/tg-utils.js set-webhook-prod"
   },
   "keywords": [],
   "author": "",

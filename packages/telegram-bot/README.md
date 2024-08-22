@@ -39,3 +39,20 @@ NGROK_URL=[shown on command line]
 * Test bot by sending a message on telegram
 
 ![alt text](images/chat_result.png)
+
+### Deploy on Vercel
+
+* add ```BOT_TOKEN``` environment variable in vercel project settings 
+* deploy app on vercel
+  * ```vercel --prod```
+* retrieve production url from [vercel](https://vercel.com/) and update .env file
+```
+VERCEL_ENV=[domain assigned by vercel]
+```
+* update webhook to production
+  * ```yarn set-webhook-prod```
+
+* verify webhook is updated to production url
+    * ```yarn get-webhook-info```
+
+* Test bot by sending a message on telegram
