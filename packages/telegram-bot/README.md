@@ -42,6 +42,7 @@ NGROK_URL=[shown on command line]
 
 ### Deploy on Vercel
 
+* stop local ngrok tunnel and localhost server
 * add ```BOT_TOKEN``` environment variable in vercel project settings 
 * deploy app on vercel
   * ```vercel --prod```
