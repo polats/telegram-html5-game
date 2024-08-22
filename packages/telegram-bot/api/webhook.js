@@ -23,6 +23,14 @@ module.exports = async (request, response) => {
             // and the text that the user sent
             const { chat: { id }, text } = body.message;
 
+            if (body.message.text === '/start') {
+        // Ensure that this is a message being sent
+            
+            await bot.sendGame(id, process.env.GAME_SHORT_NAME);
+   
+            }
+            else { // if the message is not a command
+
             // Create a message to send back
             // We can use Markdown inside this
             const message = `✅ Thanks for your message: *"${text}"*\nHave a great day! 👋🏻`;
@@ -30,6 +38,29 @@ module.exports = async (request, response) => {
             // Send our new message back in Markdown and
             // wait for the request to finish
             await bot.sendMessage(id, message, {parse_mode: 'Markdown'});
+            }
+
+
+        }
+
+        // If the user presses the "Play" Button
+
+        if (body.callback_query) {
+            // Create a message to send back
+            // We can use Markdown inside this
+            // Retrieve the ID for this chat
+            // and the text that the user sent
+            const cbq_id = body.callback_query.id;
+            const chat_id = body.callback_query.message.chat.id;
+            const message = `⌛ Starting ` + process.env.GAME_SHORT_NAME + `...`;
+            await bot.sendMessage(chat_id, message, {parse_mode: 'Markdown'});
+
+            // get game URL from .env, if not found default to example breakout game from littlejs
+            const gameUrl = process.env.GAME_URL || 'https://killedbyapixel.github.io/LittleJS/examples/breakout/';
+
+            await bot.answerCallbackQuery(
+                cbq_id, { url: gameUrl });
+
         }
     }
     catch(error) {

@@ -2,6 +2,12 @@
 
 ## Getting Started
 
+Creating an HTML5 game in Telegram requires two components:
+* A Telegram bot that is the initial interface for the telegram user
+* A hosted HTML5 game that will be run on a webview inside Telegram 
+
+We will also need to configure the Telegram bot to register and start our game. We'll go through the steps to get everything up and running below.
+
 ### Prerequisites
 
 * Install [ngrok](https://ngrok.com/)
@@ -9,9 +15,11 @@
     * Set up an ngrok account on [ngrok.com](https://ngrok.com/)
 * Install [vercel](https://vercel.com/) cli
     * ```npm install -g vercel```
-* Obtain a [Bot Token](https://core.telegram.org/bots/tutorial#getting-ready) from Telegram
+* Obtain a [Bot Token](https://core.telegram.org/bots/tutorial#getting-ready) from [BotFather](https://t.me/BotFather), the Telegram bot that handles bot registrations. This is usually done via the ```/newbot``` command
 
-### Run Locally
+![alt text](images/newbot.png)
+
+### Run Bot Locally
 
 * Create an ngrok tunnel
     * ```ngrok http 3000```
@@ -40,7 +48,23 @@ NGROK_URL=[shown on command line]
 
 ![alt text](images/chat_result.png)
 
-### Deploy on Vercel
+
+### Register our Game to Telegram
+
+* Set our bot to inline mode by sending ```/setinline``` to [BotFather](https://t.me/BotFather)
+* Register the game by sending ```/newgame```
+* Once registered, add the ```short_name``` parameter into the ```.env``` file
+
+```
+GAME_SHORT_NAME=[short name registered, for example: breakout]
+```
+* Start chatting with our bot again and send it ```/start``` and press the Play button. If everything works well you should see a sample breakout game
+
+![alt text](images/start.png)
+
+### Deploy our own game
+
+### Deploy Bot on Vercel
 
 * stop local ngrok tunnel and localhost server
 * add ```BOT_TOKEN``` environment variable in vercel project settings 
