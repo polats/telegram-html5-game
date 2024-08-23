@@ -52,7 +52,8 @@ module.exports = async (request, response) => {
             // and the text that the user sent
             const cbq_id = body.callback_query.id;
             const chat_id = body.callback_query.message.chat.id;
-            const message = `⌛ Starting ` + process.env.GAME_SHORT_NAME + `...`;
+            const game = process.env.GAME_SHORT_NAME || 'breakout';
+            const message = `⌛ Starting ` + game + `...`;
             await bot.sendMessage(chat_id, message, {parse_mode: 'Markdown'});
 
             // get game URL from .env, if not found default to example breakout game from littlejs
