@@ -25,8 +25,8 @@ module.exports = async (request, response) => {
 
             if (body.message.text === '/start') {
         // Ensure that this is a message being sent
-            
-            await bot.sendGame(id, process.env.GAME_SHORT_NAME);
+            const game = process.env.GAME_SHORT_NAME || 'breakout';
+            await bot.sendGame(id, game);
    
             }
             else { // if the message is not a command
