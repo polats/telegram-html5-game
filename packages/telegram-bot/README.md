@@ -1,4 +1,4 @@
-# Telegram HTML 5 Game Extension for Scaffold-ETH 2
+# 🤖 telegram-bot: Telegram HTML 5 Game Extension for Scaffold-ETH 2
 
 ## Demo Bot
 
