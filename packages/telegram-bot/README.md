@@ -66,8 +66,6 @@ GAME_SHORT_NAME=[short name registered, for example: breakout]
 
 ![alt text](images/start.png)
 
-### Deploy our own game
-
 ### Deploy Bot on Vercel
 
 * stop local ngrok tunnel and localhost server
@@ -85,3 +83,7 @@ VERCEL_ENV=[domain assigned by vercel]
     * ```yarn get-webhook-info```
 
 * Test bot by sending a message on telegram
+
+### Deploy Self-Hosted Game
+
+See the [telegram-html5-game package](../telegram-html5-game/README.md)
