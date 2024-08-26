@@ -1,5 +1,9 @@
 # Telegram HTML 5 Game Extension for Scaffold-ETH 2
 
+## Demo Bot
+
+https://t.me/se2_html5_bot
+
 ## Getting Started
 
 Creating an HTML5 game in Telegram requires two components:
